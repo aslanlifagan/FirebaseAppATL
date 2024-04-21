@@ -42,13 +42,21 @@ class StorageViewController: UIViewController {
         
         let updateMetadata = StorageMetadata.init()
         updateMetadata.contentType = "image/jpeg"
-        uploadRef.putData(imageData, metadata: updateMetadata) { downloadMetadata, error in
-            if let error = error {
-                print(#function, error)
+        let taskReferance = uploadRef.putData(
+            imageData, metadata: updateMetadata) {
+                downloadMetadata, error in
+                if let error = error {
+                    print(#function, error)
+                }
+                if let data = downloadMetadata {
+                    print("data", data)
+                }
             }
-            if let data = downloadMetadata {
-                print("data", data)
-            }
+        taskReferance.observe(.progress) { [weak self] picture in
+            guard let self = self else {return}
+            guard let pictureState = picture.progress?.fractionCompleted else {return}
+            print("pictureState",pictureState)
+            self.progressView.progress = Float(pictureState)
         }
     }
 }
