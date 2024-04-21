@@ -20,7 +20,9 @@ class StorageViewController: UIViewController {
     }()
     
     @IBAction func uploadAction(_ sender: UIButton) {
-        uploadFile()
+        //        uploadFile()
+        //        getImage()
+        getDownloadURL()
     }
     
     @IBAction func addAction(_ sender: UIButton) {
@@ -58,6 +60,56 @@ class StorageViewController: UIViewController {
             print("pictureState",pictureState)
             self.progressView.progress = Float(pictureState)
         }
+    }
+    
+    fileprivate func getImage() {
+        let downloadRef = Storage.storage().reference(withPath: "memes/680737FC-D2B3-4DBE-B93F-44AA30E13A4F.jpg")
+        let taskReferance = downloadRef.getData(maxSize: 4*1024*1024) { [weak self] data, error in
+            guard let self = self else {return}
+            if let error = error {
+                print(#function, error)
+            }
+            if let data = data {
+                self.imageView.image = UIImage(data: data)
+                print("data", data)
+            }
+        }
+        taskReferance.observe(.progress) { [weak self] picture in
+            guard let self = self else {return}
+            guard let pictureState = picture.progress?.fractionCompleted else {return}
+            print("pictureState",pictureState)
+            self.progressView.progress = Float(pictureState)
+        }
+    }
+    
+    fileprivate func getDownloadURL() {
+        
+        let ref = Storage.storage().reference()
+        
+        let storageReference = ref.child("/memes")
+        storageReference.listAll { (result, error) in
+            if let error = error {
+                print(error)
+            }
+            guard let items = result?.items else {return}
+            for item in items {
+                //List storage reference
+                let storageLocation = String(describing: item)
+                let gsReference = Storage.storage().reference(forURL: storageLocation)
+                
+                // Fetch the download URL
+                gsReference.downloadURL { url, error in
+                    if let error = error {
+                        // Handle any errors
+                        print(error)
+                    } else if let url = url {
+                        // Get the download URL for each item storage location
+                        print(url)
+                    }
+                }
+            }
+        }
+        
     }
 }
 
