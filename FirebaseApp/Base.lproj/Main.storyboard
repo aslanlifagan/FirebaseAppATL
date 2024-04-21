@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qgE-N3-QCh">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Remote Config View Controller-->
+        <!--RemoteConfig-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RemoteConfigViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="RemoteConfig" id="BYZ-38-t0r" customClass="RemoteConfigViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,10 +36,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121" y="4"/>
+            <point key="canvasLocation" x="-320" y="-9"/>
+        </scene>
+        <!--Storage-->
+        <scene sceneID="4Af-eW-XPf">
+            <objects>
+                <viewController storyboardIdentifier="StorageViewController" title="Storage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qgE-N3-QCh" customClass="StorageViewController" customModule="FirebaseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fuz-yq-apf">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vQk-3C-IEE">
+                                <rect key="frame" x="59" y="300.66666666666663" width="275" height="251"/>
+                                <color key="tintColor" systemColor="systemMintColor"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpV-eL-pU1">
+                                <rect key="frame" x="0.0" y="274.33333333333326" width="393" height="463.66666666666674"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                <connections>
+                                    <action selector="addAction:" destination="qgE-N3-QCh" eventType="touchUpInside" id="63E-Df-XEU"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="6ZZ-hw-vAL">
+                                <rect key="frame" x="24" y="270.33333333333331" width="345" height="4"/>
+                                <color key="tintColor" systemColor="systemMintColor"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0V-9A-WIB">
+                                <rect key="frame" x="24" y="738" width="345" height="48"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="XFq-1x-tEc"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadAction:" destination="qgE-N3-QCh" eventType="touchUpInside" id="o3z-lS-qkR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b5T-Eo-e5u"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b5T-Eo-e5u" firstAttribute="trailing" secondItem="RpV-eL-pU1" secondAttribute="trailing" id="0zN-uC-chr"/>
+                            <constraint firstItem="b5T-Eo-e5u" firstAttribute="trailing" secondItem="6ZZ-hw-vAL" secondAttribute="trailing" constant="24" id="Ayk-iA-jfQ"/>
+                            <constraint firstItem="vQk-3C-IEE" firstAttribute="height" secondItem="fuz-yq-apf" secondAttribute="height" multiplier="0.3" id="DMf-IN-C65"/>
+                            <constraint firstItem="vQk-3C-IEE" firstAttribute="centerX" secondItem="fuz-yq-apf" secondAttribute="centerX" id="E3n-2x-4Ad"/>
+                            <constraint firstItem="b5T-Eo-e5u" firstAttribute="bottom" secondItem="F0V-9A-WIB" secondAttribute="bottom" constant="32" id="Mha-gd-vav"/>
+                            <constraint firstItem="vQk-3C-IEE" firstAttribute="top" secondItem="6ZZ-hw-vAL" secondAttribute="bottom" constant="24" id="Scf-SM-bvu"/>
+                            <constraint firstItem="vQk-3C-IEE" firstAttribute="width" secondItem="fuz-yq-apf" secondAttribute="width" multiplier="0.7" id="Tq7-bQ-X3y"/>
+                            <constraint firstItem="F0V-9A-WIB" firstAttribute="top" secondItem="RpV-eL-pU1" secondAttribute="bottom" id="W66-Oa-7lB"/>
+                            <constraint firstItem="b5T-Eo-e5u" firstAttribute="trailing" secondItem="F0V-9A-WIB" secondAttribute="trailing" constant="24" id="YVw-cw-xhw"/>
+                            <constraint firstItem="F0V-9A-WIB" firstAttribute="leading" secondItem="b5T-Eo-e5u" secondAttribute="leading" constant="24" id="ffP-YX-vNx"/>
+                            <constraint firstItem="6ZZ-hw-vAL" firstAttribute="leading" secondItem="b5T-Eo-e5u" secondAttribute="leading" constant="24" id="jJJ-DM-gjD"/>
+                            <constraint firstItem="vQk-3C-IEE" firstAttribute="centerY" secondItem="fuz-yq-apf" secondAttribute="centerY" id="mv7-vq-2lf"/>
+                            <constraint firstItem="RpV-eL-pU1" firstAttribute="leading" secondItem="b5T-Eo-e5u" secondAttribute="leading" id="o3r-dG-IKL"/>
+                            <constraint firstItem="RpV-eL-pU1" firstAttribute="top" secondItem="6ZZ-hw-vAL" secondAttribute="bottom" id="rtD-pS-qns"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="RpV-eL-pU1" id="lzS-Bm-Zf7"/>
+                        <outlet property="imageView" destination="vQk-3C-IEE" id="A0b-HV-0Ea"/>
+                        <outlet property="progressView" destination="6ZZ-hw-vAL" id="HD0-nE-Oik"/>
+                        <outlet property="uploadButton" destination="F0V-9A-WIB" id="GjZ-hJ-iwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVz-sK-WPz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534" y="-9"/>
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
