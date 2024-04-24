@@ -47,7 +47,7 @@ extension ImagePicker {
                     message: "Please provide access to your \(targetName)",
                     preferredStyle: .alert)
                 alertVC.addAction(UIAlertAction(title: "Settings", style: .default, handler: { action in
-                    guard   let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
                             UIApplication.shared.canOpenURL(settingsUrl) else { completion?(false); return }
                     UIApplication.shared.open(settingsUrl, options: [:]) { [weak self] _ in
                         self?.showAlert(targetName: targetName, completion: completion)

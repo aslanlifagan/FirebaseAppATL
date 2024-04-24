@@ -58,7 +58,7 @@
                                     <action selector="addAction:" destination="qgE-N3-QCh" eventType="touchUpInside" id="63E-Df-XEU"/>
                                 </connections>
                             </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="6ZZ-hw-vAL">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ZZ-hw-vAL">
                                 <rect key="frame" x="24" y="270.33333333333331" width="345" height="4"/>
                                 <color key="tintColor" systemColor="systemMintColor"/>
                             </progressView>

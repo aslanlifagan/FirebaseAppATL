@@ -7,6 +7,10 @@
 
 import UIKit
 import FirebaseStorage
+struct PhotoModel {
+    var title: String
+    var imageURL: String
+}
 class StorageViewController: UIViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var progressView: UIProgressView!
@@ -18,15 +22,16 @@ class StorageViewController: UIViewController {
         imagePicker.delegate = self
         return imagePicker
     }()
-    
+    var list:[PhotoModel] = []
     @IBAction func uploadAction(_ sender: UIButton) {
-        //        uploadFile()
-        //        getImage()
+//                uploadFile()
+//                getImage()
         getDownloadURL()
     }
     
     @IBAction func addAction(_ sender: UIButton) {
         imagePicker.photoGalleryAccessRequest()
+//        imagePicker.cameraAccessRequest()
     }
     
     override func viewDidLoad() {
@@ -44,7 +49,8 @@ class StorageViewController: UIViewController {
         
         let updateMetadata = StorageMetadata.init()
         updateMetadata.contentType = "image/jpeg"
-        let taskReferance = uploadRef.putData(
+        
+        let task = uploadRef.putData(
             imageData, metadata: updateMetadata) {
                 downloadMetadata, error in
                 if let error = error {
@@ -54,7 +60,8 @@ class StorageViewController: UIViewController {
                     print("data", data)
                 }
             }
-        taskReferance.observe(.progress) { [weak self] picture in
+        
+        task.observe(.progress) { [weak self] picture in
             guard let self = self else {return}
             guard let pictureState = picture.progress?.fractionCompleted else {return}
             print("pictureState",pictureState)
@@ -63,7 +70,7 @@ class StorageViewController: UIViewController {
     }
     
     fileprivate func getImage() {
-        let downloadRef = Storage.storage().reference(withPath: "memes/680737FC-D2B3-4DBE-B93F-44AA30E13A4F.jpg")
+        let downloadRef = Storage.storage().reference(withPath: "memes/Screenshot 2024-04-14 at 11.58.39.png") //burdaki path Storagedeki file adi ile eyni olmalidir
         let taskReferance = downloadRef.getData(maxSize: 4*1024*1024) { [weak self] data, error in
             guard let self = self else {return}
             if let error = error {
@@ -87,6 +94,7 @@ class StorageViewController: UIViewController {
         let ref = Storage.storage().reference()
         
         let storageReference = ref.child("/memes")
+        
         storageReference.listAll { (result, error) in
             if let error = error {
                 print(error)
@@ -105,6 +113,7 @@ class StorageViewController: UIViewController {
                     } else if let url = url {
                         // Get the download URL for each item storage location
                         print(url)
+                        self.list.append(PhotoModel(title: storageLocation, imageURL: "\(url)"))
                     }
                 }
             }

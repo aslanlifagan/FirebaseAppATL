@@ -16,6 +16,15 @@ class RemoteConfigViewController: UIViewController {
     }
     // MARK: RemoteConfig
     fileprivate func setupRemoteConfig() {
+//        FirebaseRemoteConfig.instance.fetchBoolValue(key: "showLabel") { [weak self] value in
+//            guard let self = self else {return}
+//            if let showLabel = value as? Bool {
+//                DispatchQueue.main.async {
+//                    self.titleLabel.isHidden = !showLabel
+//                }
+//            }
+//        }
+        
         FirebaseRemoteConfig.instance.fetchValues(
             key: "student_model") { [weak self] value in
                 guard let self = self else {return}

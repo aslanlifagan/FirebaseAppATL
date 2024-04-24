@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4040949E2BD6B9E700FF1A7F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4040949D2BD6B9E700FF1A7F /* FirebaseStorage */; };
 		4040BECF2BD5B36500C923D4 /* ImagePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040BECE2BD5B36500C923D4 /* ImagePickerHelper.swift */; };
-		4040BED22BD5B85E00C923D4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4040BED12BD5B85E00C923D4 /* FirebaseStorage */; };
 		40608F242BD59E3600B0AB85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40608F232BD59E3600B0AB85 /* AppDelegate.swift */; };
 		40608F262BD59E3600B0AB85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40608F252BD59E3600B0AB85 /* SceneDelegate.swift */; };
 		40608F282BD59E3600B0AB85 /* RemoteConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40608F272BD59E3600B0AB85 /* RemoteConfigViewController.swift */; };
@@ -46,7 +46,7 @@
 			files = (
 				40608F392BD59EF200B0AB85 /* FirebaseRemoteConfig in Frameworks */,
 				40608F3B2BD59EF200B0AB85 /* FirebaseRemoteConfigSwift in Frameworks */,
-				4040BED22BD5B85E00C923D4 /* FirebaseStorage in Frameworks */,
+				4040949E2BD6B9E700FF1A7F /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			packageProductDependencies = (
 				40608F382BD59EF200B0AB85 /* FirebaseRemoteConfig */,
 				40608F3A2BD59EF200B0AB85 /* FirebaseRemoteConfigSwift */,
-				4040BED12BD5B85E00C923D4 /* FirebaseStorage */,
+				4040949D2BD6B9E700FF1A7F /* FirebaseStorage */,
 			);
 			productName = FirebaseApp;
 			productReference = 40608F202BD59E3600B0AB85 /* FirebaseApp.app */;
@@ -416,7 +416,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4040BED12BD5B85E00C923D4 /* FirebaseStorage */ = {
+		4040949D2BD6B9E700FF1A7F /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 40608F372BD59EF200B0AB85 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
